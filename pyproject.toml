@@ -1,0 +1,10 @@
+[project]
+name = "vote"
+version = "0.1.0"
+description = "grab data from GA SOS"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "loguru>=0.7.2",
+    "requests>=2.32.3",
+]
