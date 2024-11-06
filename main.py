@@ -1,9 +1,23 @@
 import requests
 from loguru import logger
 import json
+import typer
 
 
-logger.add("hello.log", rotation="500 MB", retention="10 days", level="INFO")
+logger.add("vote.log", rotation="500 MB", retention="10 days", level="INFO")
+
+
+app = typer.Typer()
+
+@app.command()
+def hello():
+    typer.echo("Hello, World!")
+
+@app.command()
+def getdata():
+    data = get_data()
+    logger.info(data)
+    print(json.dumps(data, indent=4))
 
 
 def get_data():
@@ -14,11 +28,7 @@ def get_data():
     return r.json()
 
 
-def main():
-    data = get_data()
-    logger.info(data)
-    print(json.dumps(data, indent=4))
 
 
 if __name__ == "__main__":
-    main()
+    app()
