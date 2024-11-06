@@ -10,5 +10,9 @@ dependencies = [
     "typer>=0.12.5",
 ]
 
+[project.scripts]
+getvotes = "vote:main"
 
-
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
